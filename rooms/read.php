@@ -41,11 +41,19 @@ $rooms = $stmt->fetchAll();
                             <td><?php echo $room['type']; ?></td>
                             <td><?php echo $room['price']; ?></td>
                             <td><?php echo ucfirst($room['status']); ?></td>
-                            <td>
-                                <a href="update.php?id=<?php echo $room['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                            </td>
 
+                            <td>
+                                <a href="update.php?id=<?php echo $room['id']; ?>"
+                                    class="btn btn-warning btn-sm me-1">Edit</a>
+
+                                <a href="delete.php?id=<?php echo $room['id']; ?>"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this room?');">
+                                    Delete
+                                </a>
+                            </td>
                         </tr>
+
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
