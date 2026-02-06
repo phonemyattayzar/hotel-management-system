@@ -38,6 +38,8 @@ if(isset($_POST['submit'])) {
             $pdo->prepare("UPDATE rooms SET status='booked' WHERE id=:id")->execute([':id'=>$room_id]);
 
             $success = "Booking created successfully!";
+            header("Location: booking_read.php");
+            exit();
             
             // Refresh available rooms
             $rooms = $pdo->query("SELECT * FROM rooms WHERE status='available' ORDER BY room_number ASC")->fetchAll();
