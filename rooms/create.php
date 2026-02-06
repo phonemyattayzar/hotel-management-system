@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
             ':status' => $status
         ]);
 
-        $success = "Room created successfully!";
+        header("Location: read.php");
+        exit();
     }
 }
 ?>
